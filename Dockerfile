@@ -1,5 +1,6 @@
 FROM node:19-alpine3.15
 
+RUN mkdir /reddit-clone
 WORKDIR /reddit-clone
 
 COPY . /reddit-clone
