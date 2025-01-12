@@ -1,12 +1,12 @@
 // jest.config.js
 module.exports = {
-    setupFilesAfterEnv: ['./jest.setup.js'],
     transform: {
-      '^.+\\.jsx?$': 'babel-jest',
+      '^.+\\.[tj]sx?$': 'babel-jest',
     },
-    testEnvironment: 'jsdom',
+    testEnvironment: 'jest-environment-jsdom',
     coverageDirectory: 'coverage',
     collectCoverage: true,
-    collectCoverageFrom: ['pages/**/*.js', 'components/**/*.js'],
+    collectCoverageFrom: ['src/pages/**/*.js', 'src/components/**/*.js'],
+    transformIgnorePatterns: ['node_modules/(?!(firebase|@firebase)/)'],
   };
   
