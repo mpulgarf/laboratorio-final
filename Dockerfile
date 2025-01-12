@@ -1,10 +1,15 @@
-FROM node:19-alpine3.15
+# Dockerfile
+FROM node:18-alpine
 
-RUN mkdir /reddit-clone
-WORKDIR /reddit-clone
-RUN chmod 644 /reddit-clone
-COPY . /reddit-clone
-RUN npm install 
+WORKDIR /app
 
-EXPOSE 3000
-CMD ["npm","run","dev"]
+COPY package.json package-lock.json ./
+
+RUN npm install
+
+COPY . .
+
+RUN npm run build
+
+CMD ["npm", "start"]
+
